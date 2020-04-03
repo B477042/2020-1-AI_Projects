@@ -2,11 +2,11 @@
 
 
 
-Component::Component()
+AComponent::AComponent()
 {
 }
 
 
-Component::~Component()
+AComponent::~AComponent()
 {
 }

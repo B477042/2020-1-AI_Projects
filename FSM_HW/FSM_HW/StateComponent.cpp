@@ -2,11 +2,11 @@
 
 
 
-StateComponent::StateComponent()
+AStateComponent::AStateComponent()
 {
 }
 
 
-StateComponent::~StateComponent()
+AStateComponent::~AStateComponent()
 {
 }

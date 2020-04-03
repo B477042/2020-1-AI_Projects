@@ -1,11 +1,16 @@
 #ifndef COMPONENT
 #define	COMPONENT
 
-class Component
+class AComponent
 {
 public:
-	Component();
-	~Component();
+	AComponent();
+	~AComponent();
+	virtual void InitComponent();
+	virtual void Update(float DeltaTime);
+
+protected:
+
 };
 
 

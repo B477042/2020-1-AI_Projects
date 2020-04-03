@@ -2,11 +2,11 @@
 
 
 
-DialogueComponent::DialogueComponent()
+ADialogueComponent::ADialogueComponent()
 {
 }
 
 
-DialogueComponent::~DialogueComponent()
+ADialogueComponent::~ADialogueComponent()
 {
 }

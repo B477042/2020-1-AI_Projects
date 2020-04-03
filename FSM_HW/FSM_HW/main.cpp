@@ -9,7 +9,7 @@ int main()
 	float prevTime = GetCurrentTime();
 	float currentTime = 0;
 
-	GameSpector gameSpector;
+	FGameSpector gameSpector;
 	gameSpector.InitGame();
 	while (1)
 	{

@@ -33,6 +33,18 @@
     <ClCompile Include="GameSpector.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Pseudo.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Person.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Police.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -48,6 +60,18 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="GameSpector.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Pseudo.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Person.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Police.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

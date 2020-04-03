@@ -3,12 +3,12 @@
 
 
 #include "Component.h"
-class DialogueComponent :
-	public Component
+class ADialogueComponent :
+	public AComponent
 {
 public:
-	DialogueComponent();
-	~DialogueComponent();
+	ADialogueComponent();
+	~ADialogueComponent();
 };
 
 

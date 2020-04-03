@@ -2,16 +2,16 @@
 
 
 
-GameSpector::GameSpector()
+FGameSpector::FGameSpector()
 {
 }
 
 
-GameSpector::~GameSpector()
+FGameSpector::~FGameSpector()
 {
 }
 
-void GameSpector::InitGame()
+void FGameSpector::InitGame()
 {
 	AActor* Shin = new AActor();
 	Shin->SetName("신천지 교인 1");
@@ -19,7 +19,7 @@ void GameSpector::InitGame()
 	Actors.push_back(Shin);
 }
 
-void GameSpector::Update(float DeltaTime)
+void FGameSpector::Update(float DeltaTime)
 {
 	for (auto it = Actors.begin(); it != Actors.end(); it++)
 	{
@@ -28,6 +28,6 @@ void GameSpector::Update(float DeltaTime)
 	}
 }
 
-void GameSpector::EndGame()
+void FGameSpector::EndGame()
 {
 }

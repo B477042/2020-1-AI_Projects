@@ -5,11 +5,11 @@
 #include"DialogueComponent.h"
 #include"StateComponent.h"
 
-class GameSpector
+class FGameSpector
 {
 public:
-	GameSpector();
-	~GameSpector();
+	FGameSpector();
+	~FGameSpector();
 
 public:
 	

@@ -21,7 +21,7 @@ public:
 
 	virtual void Update(float DeltaTime);
 	virtual void UpdateComponents(float DeltaTime);
-	void AddComponent(Component* Other);
+	void AddComponent(AComponent* Other);
 	void SetName(string Name) { this->Name = Name; }
 protected:
 	void resetTimer() { ActionTimer = 0; }
@@ -31,7 +31,7 @@ protected:
 
 
 protected:
-	vector<Component*>Components;
+	vector<AComponent*>Components;
 	string Name;
 	float ActionTimer;
 	float LimitTime;

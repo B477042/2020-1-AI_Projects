@@ -3,12 +3,18 @@
 
 
 #include "Component.h"
-class StateComponent :
-	public Component
+
+/*
+	상태에 대해 정의하는 컴포넌트
+
+*/
+class AStateComponent :
+	public AComponent
 {
 public:
-	StateComponent();
-	~StateComponent();
+	AStateComponent();
+	~AStateComponent();
+
 };
 
 
