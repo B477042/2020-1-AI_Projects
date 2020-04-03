@@ -77,6 +77,9 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -115,6 +118,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AActor.cpp" />
+    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="DialogueComponent.cpp" />
+    <ClCompile Include="GameSpector.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="StateComponent.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AActor.h" />
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="DialogueComponent.h" />
+    <ClInclude Include="GameSpector.h" />
+    <ClInclude Include="StateComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
