@@ -9,6 +9,12 @@ AActor::AActor()
 
 AActor::~AActor()
 {
+	//나중에 지울 것
+	Name = "Actor";
+}
+
+void AActor::BeginPlay()
+{
 }
 
 void AActor::Update(float DeltaTime)
@@ -19,3 +25,5 @@ void AActor::Update(float DeltaTime)
 void AActor::UpdateComponents(float DeltaTime)
 {
 }
+
+

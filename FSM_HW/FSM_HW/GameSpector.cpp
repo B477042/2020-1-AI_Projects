@@ -11,12 +11,19 @@ FGameSpector::~FGameSpector()
 {
 }
 
-void FGameSpector::InitGame()
+void FGameSpector::BeginPlay()
 {
 	AActor* Shin = new AActor();
-	Shin->SetName("신천지 교인 1");
+	//Shin->SetName("신천지 교인 1");
 	//Shin->AddComponent();
 	Actors.push_back(Shin);
+
+
+	for (auto it = Actors.begin(); it != Actors.end(); it++)
+	{
+		AActor* actor = *it;
+		actor->BeginPlay();
+	}
 }
 
 void FGameSpector::Update(float DeltaTime)

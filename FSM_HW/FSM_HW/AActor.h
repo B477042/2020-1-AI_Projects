@@ -1,10 +1,11 @@
 #ifndef AACTOR
 #define AACTOR
-#include<iostream>
+
 #include <vector>
-#include<string>
+
+#include "Entity.h"
 #include "Component.h"
-using namespace std;
+
 
 /*
 	이 대화에 나오게될 엑터 클래스
@@ -13,29 +14,29 @@ using namespace std;
 */
 
 
-class AActor
+class AActor:public AEntity
 {
 public:
 	AActor();
 	~AActor();
-
+	virtual void BeginPlay();
 	virtual void Update(float DeltaTime);
 	virtual void UpdateComponents(float DeltaTime);
-	void AddComponent(AComponent* Other);
-	void SetName(string Name) { this->Name = Name; }
+	
+	string GetName() { return Name; }
 protected:
 	void resetTimer() { ActionTimer = 0; }
 	void tickTimer(float DeltaTime) { ActionTimer += DeltaTime; }
 	//Timer가 제한시간을 넘었는지 체크한다. 만약 넘었다면, true가 반환된다
 	bool isTimerOver() { if (ActionTimer >= LimitTime)return true; return false; }
-
+	
 
 protected:
 	vector<AComponent*>Components;
-	string Name;
+	EComponentType Type;
 	float ActionTimer;
 	float LimitTime;
-
+	string Name;
 };
 
 

@@ -13,7 +13,7 @@ public:
 
 public:
 	
-	void InitGame();
+	void BeginPlay();
 	void Update(float DeltaTime);
 	void EndGame();
 private:

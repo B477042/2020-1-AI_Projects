@@ -2,9 +2,9 @@
 
 
 
-ADialogueComponent::ADialogueComponent()
-{
-}
+//ADialogueComponent::ADialogueComponent()
+//{
+//}
 
 
 ADialogueComponent::~ADialogueComponent()

@@ -121,6 +121,7 @@
     <ClCompile Include="AActor.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="DialogueComponent.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="GameSpector.cpp" />
     <ClCompile Include="main.cpp" />
@@ -133,6 +134,7 @@
     <ClInclude Include="AActor.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="DialogueComponent.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="GameSpector.h" />
     <ClInclude Include="Person.h" />
