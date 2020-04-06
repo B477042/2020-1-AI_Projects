@@ -5,6 +5,7 @@
 #include"DialogueComponent.h"
 #include"StateComponent.h"
 
+
 class FGameSpector
 {
 public:
@@ -15,8 +16,16 @@ public:
 	
 	void BeginPlay();
 	void Update(float DeltaTime);
-	void EndGame();
+	void EndPlay();
+
+
+	bool bIsPowerOn() { return bPower; }
 private:
+	//if Esc inputted, Power down
+	void cheackPower();
+
+private:
+	bool bPower;
 	vector<AActor*>Actors;
 
 };

@@ -1,9 +1,10 @@
 #include "GameSpector.h"
-
+#include <conio.h>
 
 
 FGameSpector::FGameSpector()
 {
+	bPower = true;
 }
 
 
@@ -32,9 +33,34 @@ void FGameSpector::Update(float DeltaTime)
 	{
 		AActor* actor = *it;
 		actor->Update(DeltaTime);
+	//	actor->UpdateComponents(DeltaTime);
 	}
+	cheackPower();
 }
 
-void FGameSpector::EndGame()
+void FGameSpector::EndPlay()
 {
+	for (auto it = Actors.begin(); it != Actors.end(); it++)
+	{
+		AActor* actor = *it;
+		actor->EndPlay();
+		delete *it;
+	}
+	Actors.clear();
+}
+
+void FGameSpector::cheackPower()
+{
+	if (_kbhit())
+	{
+		auto input= _getch();
+		switch (input)
+		{
+		case 27:
+			cout << "!!!!!!!!!!!!!!강제종료!!!!!!!!!!!!!!" << endl;
+			bPower = false;
+			break;
+		
+		}
+	}
 }

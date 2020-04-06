@@ -11,7 +11,7 @@ int main()
 
 	FGameSpector gameSpector;
 	gameSpector.BeginPlay();
-	while (1)
+	while (gameSpector.bIsPowerOn())
 	{
 		currentTime = GetCurrentTime()-prevTime;
 		prevTime = GetCurrentTime();
@@ -19,5 +19,8 @@ int main()
 		gameSpector.Update(currentTime);
 		Sleep(1000);
 	}
+	gameSpector.EndPlay();
+	
+
 	return 0;
 }

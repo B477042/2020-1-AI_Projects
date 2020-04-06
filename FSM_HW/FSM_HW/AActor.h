@@ -22,6 +22,7 @@ public:
 	virtual void BeginPlay();
 	virtual void Update(float DeltaTime);
 	virtual void UpdateComponents(float DeltaTime);
+	virtual void EndPlay();
 	
 	string GetName() { return Name; }
 protected:

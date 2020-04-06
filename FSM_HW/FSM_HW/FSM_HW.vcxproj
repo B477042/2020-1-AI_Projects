@@ -141,6 +141,7 @@
     <ClInclude Include="Police.h" />
     <ClInclude Include="Pseudo.h" />
     <ClInclude Include="StateComponent.h" />
+    <ClInclude Include="vectorTest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
