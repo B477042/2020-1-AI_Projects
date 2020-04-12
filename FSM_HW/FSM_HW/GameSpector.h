@@ -24,7 +24,9 @@ public:
 
 	 AActor* FindActor(EActorType Target);
 	bool bIsPowerOn() { return bPower; }
-	
+
+	//게임의 종료 조건인 사이비가 잡혔는지 체크한다
+	void  CheckAllPseudo();
 private:
 	//if Esc inputted, Power down
 	void cheackPower();

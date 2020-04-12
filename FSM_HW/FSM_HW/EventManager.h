@@ -29,6 +29,7 @@ public:
 	
 	static void EndPlay()
 	{
+		cout << "=================이야기 끝~==========" << endl;
 		gameSpector->EndPlay();
 
 		delete instance;

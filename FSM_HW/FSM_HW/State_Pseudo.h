@@ -24,10 +24,11 @@ public:
 	virtual void EndPlay()override;
 
 
-	//상태에 맞는 행동하기
-	void Excute();
+	
 	void BeingCaputred();
 protected:
+	//상태에 맞는 행동하기
+	void Excute();
 	//Dialogue Component에 정보를 보내준다
 	virtual void sendMessage();
 	APseudo* GetOwner();

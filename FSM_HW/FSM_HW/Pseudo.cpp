@@ -1,6 +1,8 @@
 #include "Pseudo.h"
 #include"State_Pseudo.h"
 #include"DialogueComponent.h"
+#include"EventManager.h"
+#include"Person.h"
 
 int APseudo::CreatedNum = 0;
 APseudo::APseudo()
@@ -26,8 +28,8 @@ void APseudo::BeginPlay()
 void APseudo::Update(float DeltaTime)
 {
 	if (bIsCaputred==true)return;
-
-	UpdateComponents(DeltaTime);
+	AActor::Update(DeltaTime);
+	
 }
 
 void APseudo::UpdateComponents(float DeltaTime)
@@ -55,4 +57,29 @@ void APseudo::BeingCaputred()
 		bIsCaputred = true;
 		cout << "이제 못가" << endl;
 	}
+}
+
+void APseudo::SayHello()
+{
+	auto tempComp = (AState_Pseudo*)GetCompnent(EComponentType::StateComponent);
+	if (!tempComp)return;
+
+	int num = rand() % 3;
+	switch (num)
+	{
+	case 0:
+		cout << name << " \"인상이 좋으세요 ^^\"" << endl;
+		break;
+	case 1:
+		cout << name << " \"도를 아십니까^^\"" << endl;
+		break;
+	case 2:
+		cout << name << " \"집에 복이 많으시네요 ^^\"" << endl;
+		break;
+	}
+
+	auto temp = (APerson*)FEventManager::GetGame()->FindActor(EActorType::Person);
+	if(temp!=nullptr)
+	temp->ExposedToPseudo();
+
 }

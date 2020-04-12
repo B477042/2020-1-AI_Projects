@@ -45,12 +45,12 @@ void AState_Pseudo::Excute()
 		
 		
 			/*	
-				1. 신자가 있는지 검사
-				2. 있다면 
+				
 			*/
 		if(n_PreachCount==0)
 			cout << tempOwner->GetName() <<"가  전도 합니다" << endl;
-			
+
+		GetOwner()->SayHello();
 			n_PreachCount++;
 		
 

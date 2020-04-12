@@ -123,14 +123,49 @@ void AState_Police::Excute()
 		}
 
 		break;
-	
-	default:
+	case EState::Police_Capture:
+		APseudo* target = (APseudo*)FEventManager::GetGame()->FindActor(EActorType::Pseudo);
+		if (target == nullptr)cout << tempOwner->GetName() << " \"사이비가 없네\"" << endl;
+
+		auto targetComp = (AStateComponent*)(target->GetCompnent(EComponentType::StateComponent));
+		switch (targetComp->GetState())
+		{
+		case EState::Pseudo_Preach:
+			cout << "\"잡았다 요놈!\"" << endl;
+			target->BeingCaputred();
+
+		default:
+			cout << "장난전화네" << endl;
+			state = EState::Police_Eating;
+			break;
+		}
+
 		break;
+	
 	}
 	
 }
 
- APolice * AState_Police::GetOwner()
+void AState_Police::GetReported()
+{
+	cout << "======경찰에 신고가 접수 됐습니다===" << endl;
+	switch (state)
+	{
+	case EState::Police_Sleep:
+		cout << "자고 있어서 못 갑니다" << endl;
+		break;
+	case EState::Police_Eating:
+		cout << "지금 갑니다" << endl;
+		state = EState::Police_Capture;
+		break;
+	case EState::Police_OnWork:
+		cout << GetOwner()->GetName()<<" : 장난전화 하지 마세요" << endl;
+
+		break;
+	}
+}
+
+APolice * AState_Police::GetOwner()
 {
 	auto tempOwner = (APolice*)(Owner);
 	if (tempOwner == nullptr) { cout << "SADFAFSDFASDFASDFASFD Police Casting Error" << endl; return nullptr; }

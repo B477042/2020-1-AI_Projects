@@ -20,12 +20,13 @@ public:
 	virtual void BeginPlay()override;
 	virtual void Update(float DeltaTime)override;
 	virtual void EndPlay()override;
-	//State기반의 행동을 합니다
-	void Excute();
+	
 	//신고를 접수 받습니다
 	void GetReported();
 	 APolice* GetOwner();
 protected:
+	//State기반의 행동을 합니다
+	void Excute();
 	//Dialogue Component에 정보를 보내준다
 	virtual void sendMessage();
 

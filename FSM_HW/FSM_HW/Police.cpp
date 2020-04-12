@@ -36,3 +36,11 @@ void APolice::EndPlay()
 {
 	AActor::EndPlay();
 }
+
+void APolice::GetReoprt()
+{
+	auto tempComp=(AState_Police*)GetCompnent(EComponentType::StateComponent);
+	if (tempComp == nullptr)return;
+
+	tempComp->GetReported();
+}
