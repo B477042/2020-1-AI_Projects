@@ -3,6 +3,7 @@
 
 
 #include "Component.h"
+#include "AActor.h"
 
 /*
 	대화를 출력하는 컴포넌트
@@ -19,6 +20,7 @@ public:
 		ComponentType = EComponentType::DialogueComponent;
 	}
 	~ADialogueComponent();
+	void ReceiveMessage(AActor* Other, string* DoWhat );
 };
 
 

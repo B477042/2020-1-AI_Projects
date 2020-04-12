@@ -1,4 +1,7 @@
 #include "GameSpector.h"
+#include"Pseudo.h"
+#include"Person.h"
+#include"Police.h"
 #include <conio.h>
 
 
@@ -14,11 +17,9 @@ FGameSpector::~FGameSpector()
 
 void FGameSpector::BeginPlay()
 {
-	AActor* Shin = new AActor();
-	//Shin->SetName("신천지 교인 1");
-	//Shin->AddComponent();
-	Actors.push_back(Shin);
-
+	
+	Actors.push_back(new APseudo());
+	Actors.push_back(new APolice());
 
 	for (auto it = Actors.begin(); it != Actors.end(); it++)
 	{
@@ -47,6 +48,18 @@ void FGameSpector::EndPlay()
 		delete *it;
 	}
 	Actors.clear();
+}
+
+AActor * FGameSpector::FindActor(EActorType Target)
+{
+	for (auto it : Actors)
+	{
+		if (it->GetType() == Target)
+		{
+			return it;
+		}
+	}
+	return nullptr;
 }
 
 void FGameSpector::cheackPower()

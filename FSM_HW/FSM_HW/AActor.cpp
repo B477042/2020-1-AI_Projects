@@ -4,8 +4,9 @@
 
 AActor::AActor()
 {
-	//나중에 지울 것
-	Name = "Actor";
+	
+	name = "Actor";
+	
 }
 
 
@@ -20,7 +21,7 @@ void AActor::BeginPlay()
 
 void AActor::Update(float DeltaTime)
 {
-	cout << Name << endl;
+	//cout << Name << endl;
 	
 
 	UpdateComponents(DeltaTime);
@@ -31,7 +32,7 @@ void AActor::UpdateComponents(float DeltaTime)
 	for (auto it : Components)
 	{
 		
-		UpdateComponents(DeltaTime);
+		it->Update(DeltaTime);
 	}
 }
 /*
@@ -43,10 +44,24 @@ void AActor::EndPlay()
 {
 	for (auto it : Components)
 	{
-		EndPlay();
+		it->EndPlay();
 		delete it;
 	}
 	Components.clear();
+
+
 }
+
+	const AComponent * AActor::GetCompnent(EComponentType type)
+	{
+		for (auto it : Components)
+		{
+			if (it->GetComponentType() == type)return it;
+		}
+
+		return nullptr;
+	}
+
+	
 
 

@@ -11,10 +11,14 @@
 
 
 */
-class EState
+
+//모든 상태들
+enum EState
 {
-public:
-	
+	None=0,
+	Pseudo_Preach,Pseudo_Toilet,Pseudo_Captured,
+	Person_Idle, Person_Runaway,Person_Report,
+	Police_Eating,Police_Sleep,Police_OnWork,Police_Capture
 };
 
 
@@ -25,16 +29,21 @@ public:
 	AStateComponent(AEntity*Owner) :AComponent(Owner)
 	{
 		ComponentType = EComponentType::StateComponent;
-		Priority = EPriority::StateComponent;
+		
 	}
 
 	~AStateComponent();
 	virtual void BeginPlay()override;
 	virtual void Update(float DeltaTime)override;
 	virtual void EndPlay()override;
-	virtual string GetState() = 0;
+	EState GetState() { return state; }
 protected:
+	//Dialogue Component에 정보를 보내준다
+	virtual void sendMessage();
 
+
+protected:
+	EState state;
 };
 
 

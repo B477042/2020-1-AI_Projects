@@ -3,6 +3,8 @@
 
 #include<iostream>
 #include<string>
+//#include"EventManager.h"
+#include<time.h>
 using namespace std;
 /*
 			=============
@@ -24,6 +26,7 @@ using namespace std;
 class AEntity
 {
 };
+
 
 
 #endif // !ENTITY

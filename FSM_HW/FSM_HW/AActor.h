@@ -12,19 +12,29 @@
 	업데이트를 통해서 작업하게 될 것이다. 
 
 */
-
+enum EActorType
+{
+	Actor = 0,
+	Police,
+	Person,
+	Pseudo
+};
 
 class AActor:public AEntity
 {
 public:
 	AActor();
-	~AActor();
+	virtual ~AActor();
 	virtual void BeginPlay();
 	virtual void Update(float DeltaTime);
 	virtual void UpdateComponents(float DeltaTime);
 	virtual void EndPlay();
 	
-	string GetName() { return Name; }
+	const AComponent*GetCompnent(EComponentType type);
+
+	string GetName() { return name; }
+	EActorType GetType() { return actorType; }
+	
 protected:
 	void resetTimer() { ActionTimer = 0; }
 	void tickTimer(float DeltaTime) { ActionTimer += DeltaTime; }
@@ -37,7 +47,8 @@ protected:
 	EComponentType Type;
 	float ActionTimer;
 	float LimitTime;
-	string Name;
+	string name;
+	EActorType actorType;
 };
 
 

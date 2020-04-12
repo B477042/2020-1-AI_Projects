@@ -17,8 +17,15 @@ void AStateComponent::BeginPlay()
 
 void AStateComponent::Update(float DeltaTime)
 {
+	tickTimer(DeltaTime);
+
+	
 }
 
 void AStateComponent::EndPlay()
+{
+}
+
+void AStateComponent::sendMessage()
 {
 }

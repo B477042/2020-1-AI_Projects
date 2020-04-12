@@ -11,15 +11,8 @@ enum EComponentType
 	StateComponent,
 	DialogueComponent
 };
-//Component간의 우선순위
-enum EPriority
-{
-	Comopnent =0,
-	StateComponent=1,
 
-	DialogueComponent=9
-	
-};
+
 //전역변수 
 static map<EComponentType, string> FComponentType = { {EComponentType::Component, "Component"},{EComponentType::DialogueComponent, "DialogueComponent"},{EComponentType::StateComponent, "StateComponent"} };
 
@@ -45,9 +38,9 @@ public:
 	virtual void Update(float DeltaTime);
 	//루프가 끝난 후 처리
 	virtual void EndPlay();
-	int GetPriority();
 
-	string GetComponentName() { return FComponentType[ComponentType]; }
+
+	EComponentType GetComponentType() { return ComponentType; }
 
 	//OwnerActor를 반환한다. !DownCasting해서 사용할 것
 	const AEntity* GetOwner() { return Owner; }
@@ -55,10 +48,12 @@ public:
 protected:
 	void resetTimer() { ActionTimer = 0.0f; }
 	void tickTimer(float DeltaTime) { ActionTimer += DeltaTime; }
+	bool bIsTimeLimit() { if (ActionTimer >= 1.0f) return true; return false; }
+	
 protected:
 
 	EComponentType ComponentType;
-	EPriority Priority;
+	
 	AEntity* Owner;
 	
 	float ActionTimer;

@@ -129,6 +129,9 @@
     <ClCompile Include="Police.cpp" />
     <ClCompile Include="Pseudo.cpp" />
     <ClCompile Include="StateComponent.cpp" />
+    <ClCompile Include="State_Person.cpp" />
+    <ClCompile Include="State_Police.cpp" />
+    <ClCompile Include="State_Pseudo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AActor.h" />
@@ -141,6 +144,9 @@
     <ClInclude Include="Police.h" />
     <ClInclude Include="Pseudo.h" />
     <ClInclude Include="StateComponent.h" />
+    <ClInclude Include="State_Person.h" />
+    <ClInclude Include="State_Police.h" />
+    <ClInclude Include="State_Pseudo.h" />
     <ClInclude Include="vectorTest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

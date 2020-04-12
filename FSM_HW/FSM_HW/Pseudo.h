@@ -21,9 +21,17 @@ class APseudo :
 public:
 	APseudo();
 	~APseudo();
+
+	virtual void BeginPlay();
+	virtual void Update(float DeltaTime);
+	virtual void UpdateComponents(float DeltaTime);
+	virtual void EndPlay();
+	void BeingCaputred();
 private:
 	static int CreatedNum;
-	
+	bool bIsCaputred;
+
+
 
 };
 
