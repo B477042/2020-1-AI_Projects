@@ -25,3 +25,8 @@ void AComponent::Update(float DeltaTime)
 void AComponent::EndPlay()
 {
 }
+
+int AComponent::GetPriority()
+{
+	return Priority;
+}

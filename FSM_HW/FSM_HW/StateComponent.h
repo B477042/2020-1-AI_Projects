@@ -11,6 +11,13 @@
 
 
 */
+class EState
+{
+public:
+	
+};
+
+
 class AStateComponent :
 	public AComponent
 {
@@ -18,12 +25,14 @@ public:
 	AStateComponent(AEntity*Owner) :AComponent(Owner)
 	{
 		ComponentType = EComponentType::StateComponent;
+		Priority = EPriority::StateComponent;
 	}
 
 	~AStateComponent();
 	virtual void BeginPlay()override;
 	virtual void Update(float DeltaTime)override;
 	virtual void EndPlay()override;
+	virtual string GetState() = 0;
 protected:
 
 };
