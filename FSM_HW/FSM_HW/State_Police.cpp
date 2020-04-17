@@ -131,6 +131,7 @@ void AState_Police::Excute()
 
 		//체포 생태에서 행동
 	case EState::Police_Capture:
+		cout << "=====현장 도착====" << endl;
 		//잡아야될 사이비를 조사합니다
 		APseudo* target = (APseudo*)FGameSpector::GetInstance()->FindActor(EActorType::Pseudo);
 		//사이비가 없다면  밥 먹으러 갑니다
@@ -141,7 +142,7 @@ void AState_Police::Excute()
 			state = EState::Police_Eating;
 			break;
 		}
-
+		cout << "====신고 해주신 분?===" << endl;
 
 		//사이비가 있다면 상태를 체크합니다
 		auto targetComp = (AStateComponent*)(target->GetCompnent(EComponentType::StateComponent));
@@ -152,10 +153,10 @@ void AState_Police::Excute()
 			cout << "\"잡았다 요놈!\"" << endl;
 			target->BeingCaputred();
 
-
+			break;
 			//사이비가 포교하고 있지 않다면 밥 먹으러 갑니다
 		default:
-		//	//cout << "장난전화네" << endl;
+			cout << "장난전화네" << endl;
 			state = EState::Police_Eating;
 			break;
 		}
