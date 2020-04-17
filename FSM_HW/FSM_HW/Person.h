@@ -5,8 +5,15 @@
 #include "AActor.h"
 
 /*
-	행인 클래스
+	시민 클래스
 
+		상태
+			1) 대기 : 기본상태 아무것도 안 합니다.
+				수신 : 사이비------포교------>
+			2) 도망가기 : 사이비를 피합니다.
+
+			3) 신고하기 : 경찰에 사이비를 신고합니다
+				
 */
 class APerson :
 	public AActor
@@ -22,7 +29,6 @@ public:
 	virtual void EndPlay()override;
 
 	//경찰에게 사이비를 신고합니다.
-
 	void SendReport();
 	//사이비가 말을 걸어옵니다
 	void ExposedToPseudo();

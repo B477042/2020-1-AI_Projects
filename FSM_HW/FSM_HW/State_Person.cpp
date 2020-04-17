@@ -41,6 +41,7 @@ void AState_Person::sendMessage()
 void AState_Person::excute()
 {
 	string name = GetOwner()->GetName();
+	int talkNum = rand() % 4;
 	if(ActionTimer>=1.0f)
 	switch (state)
 	{
@@ -49,15 +50,39 @@ void AState_Person::excute()
 		cout << name << "이 이리저리 돌아다닙니다" << endl;
 		n_IdleTime++;
 		
-	
+		
 
 
 		break;
 	case EState::Person_Runaway:
-		cout << name << "이 재수 없다고 자리를 피합니다" << endl;
+
+		
+		switch (talkNum)
+		{
+		case 0:
+			cout << name << "이 재수 없다고 자리를 피합니다" << endl;
+			break;
+		case 1:
+
+			cout << name << "가 화를 냅니다" << endl;
+			break;
+		case 2:
+			cout << name << "가 침을 뱉습니다" << endl;
+			break;
+		case 3:
+			cout << name << "가 반야심경을 외웁니다" << endl;
+			break;
+		}
+
+		
+
+
+		state = EState::Person_Idle;
+		
 		break;
 	case EState::Person_Report:
 		GetOwner()->SendReport();
+		state = EState::Person_Idle;
 		break;
 	}
 }

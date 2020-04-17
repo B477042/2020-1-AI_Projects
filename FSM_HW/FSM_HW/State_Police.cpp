@@ -25,7 +25,7 @@ void AState_Police::EndPlay()
 {
 	
 }
-
+//State기반의 행동을 합니다
 void AState_Police::Excute()
 {
 	auto tempOwner = GetOwner();
@@ -54,14 +54,17 @@ void AState_Police::Excute()
 			else
 			{
 				cout << tempOwner->GetName() << "가 드디어 일읗 합니다" << endl;
-				state = EState::Police_OnWork;
+				state = EState::Police_OnPatrol;
 				n_Eating = 0;
 			}
 		}
 		
 		
 		break;
+		//자고 있을 때 행동
 	case Police_Sleep:
+
+		//메시지를 출력해줍니다
 		if(n_Sleep==0)
 		cout << tempOwner->GetName() << "가 자고 있습니다" << endl;
 
@@ -85,14 +88,16 @@ void AState_Police::Excute()
 			else
 			{
 				cout << tempOwner->GetName() << "가 드디어 일읗 합니다" << endl;
-				state = EState::Police_OnWork;
+				state = EState::Police_OnPatrol;
 				n_Sleep = 0;
 			}
 
 		}
 		break;
-	case Police_OnWork:
 
+		//순찰 중일 때 행동
+	case Police_OnPatrol:
+		//일을 시작하면 사이비를 찾아 스캔합니다
 		if (n_OnWalk == 0)
 		{
 			cout << tempOwner->GetName() << "\" 엣햄 엣햄\"" << endl;
@@ -113,8 +118,8 @@ void AState_Police::Excute()
 		}
 		n_OnWalk++;
 
-		//일이 끝나면
-		if (n_OnWalk)
+		//일은 매우 짧게
+		if (n_OnWalk>0)
 		{
 			//자러 갑니다
 			n_OnWalk = 0;
@@ -123,19 +128,34 @@ void AState_Police::Excute()
 		}
 
 		break;
-	case EState::Police_Capture:
-		APseudo* target = (APseudo*)FEventManager::GetGame()->FindActor(EActorType::Pseudo);
-		if (target == nullptr)cout << tempOwner->GetName() << " \"사이비가 없네\"" << endl;
 
+		//체포 생태에서 행동
+	case EState::Police_Capture:
+		//잡아야될 사이비를 조사합니다
+		APseudo* target = (APseudo*)FEventManager::GetGame()->FindActor(EActorType::Pseudo);
+		//사이비가 없다면  밥 먹으러 갑니다
+		if (target == nullptr)
+		{
+			cout << tempOwner->GetName() << " \"사이비가 없네\"" << endl;
+
+			state = EState::Police_Eating;
+			break;
+		}
+
+
+		//사이비가 있다면 상태를 체크합니다
 		auto targetComp = (AStateComponent*)(target->GetCompnent(EComponentType::StateComponent));
 		switch (targetComp->GetState())
 		{
+			//사이비가 포교 중이라면 잡습니다
 		case EState::Pseudo_Preach:
 			cout << "\"잡았다 요놈!\"" << endl;
 			target->BeingCaputred();
 
+
+			//사이비가 포교하고 있지 않다면 밥 먹으러 갑니다
 		default:
-			cout << "장난전화네" << endl;
+		//	//cout << "장난전화네" << endl;
 			state = EState::Police_Eating;
 			break;
 		}
@@ -146,6 +166,7 @@ void AState_Police::Excute()
 	
 }
 
+//경찰이 신고를 받았을 때  상태에 따라 처리됩니다
 void AState_Police::GetReported()
 {
 	cout << "======경찰에 신고가 접수 됐습니다===" << endl;
@@ -158,7 +179,7 @@ void AState_Police::GetReported()
 		cout << "지금 갑니다" << endl;
 		state = EState::Police_Capture;
 		break;
-	case EState::Police_OnWork:
+	case EState::Police_OnPatrol:
 		cout << GetOwner()->GetName()<<" : 장난전화 하지 마세요" << endl;
 
 		break;

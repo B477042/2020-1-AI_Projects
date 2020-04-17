@@ -48,7 +48,7 @@ void AState_Pseudo::Excute()
 				
 			*/
 		if(n_PreachCount==0)
-			cout << tempOwner->GetName() <<"가  전도 합니다" << endl;
+			cout << tempOwner->GetName() <<"가  전도를 시작합니다" << endl;
 
 		GetOwner()->SayHello();
 			n_PreachCount++;

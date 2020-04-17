@@ -18,7 +18,7 @@ enum EState
 	None=0,
 	Pseudo_Preach,Pseudo_Toilet,Pseudo_Captured,
 	Person_Idle, Person_Runaway,Person_Report,
-	Police_Eating,Police_Sleep,Police_OnWork,Police_Capture
+	Police_Eating,Police_Sleep,Police_OnPatrol,Police_Capture
 };
 
 

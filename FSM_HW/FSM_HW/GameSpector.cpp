@@ -33,12 +33,16 @@ void FGameSpector::Update(float DeltaTime)
 {
 	for (auto it = Actors.begin(); it != Actors.end(); it++)
 	{
+
+		if (bIsPowerOn()==false)break;
 		AActor* actor = *it;
 		actor->Update(DeltaTime);
+
+		CheckAllPseudo();
 	//	actor->UpdateComponents(DeltaTime);
 	}
-	cheackPower();
-	CheckAllPseudo();
+	getUserInput();
+//	CheckAllPseudo();
 }
 
 void FGameSpector::EndPlay()
@@ -64,6 +68,8 @@ AActor * FGameSpector::FindActor(EActorType Target)
 	return nullptr;
 }
 
+
+//모든 사이비 신도의 상태를 체크합니다. 만약 모든 사이비가 체포됐다면 파워를 꺼줍니다. 아니라면 파워를 켜둡니다.
 void FGameSpector::CheckAllPseudo()
 {
 	for (auto it : Actors)
@@ -90,7 +96,8 @@ void FGameSpector::CheckAllPseudo()
 	
 }
 
-void FGameSpector::cheackPower()
+//사용자의 입력을 받습니다.esc를 누르면 강제종료 됩니다.
+void FGameSpector::getUserInput()
 {
 	if (_kbhit())
 	{

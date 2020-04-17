@@ -30,6 +30,8 @@ protected:
 	//Dialogue Component에 정보를 보내준다
 	virtual void sendMessage();
 
+
+	//상태를 지연 시키는 카운터들
 	int n_Eating;
 	int n_Sleep;
 	int n_OnWalk;

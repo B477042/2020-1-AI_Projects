@@ -29,7 +29,7 @@ public:
 	void  CheckAllPseudo();
 private:
 	//if Esc inputted, Power down
-	void cheackPower();
+	void getUserInput();
 
 private:
 	bool bPower;
