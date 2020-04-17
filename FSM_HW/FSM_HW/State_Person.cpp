@@ -64,13 +64,13 @@ void AState_Person::excute()
 			break;
 		case 1:
 
-			cout << name << "가 화를 냅니다" << endl;
+			cout << name << "이 화를 냅니다" << endl;
 			break;
 		case 2:
-			cout << name << "가 침을 뱉습니다" << endl;
+			cout << name << "이 침을 뱉습니다" << endl;
 			break;
 		case 3:
-			cout << name << "가 반야심경을 외웁니다" << endl;
+			cout << name << "이 반야심경을 외웁니다" << endl;
 			break;
 		}
 
