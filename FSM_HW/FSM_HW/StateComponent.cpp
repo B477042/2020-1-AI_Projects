@@ -26,6 +26,3 @@ void AStateComponent::EndPlay()
 {
 }
 
-void AStateComponent::sendMessage()
-{
-}

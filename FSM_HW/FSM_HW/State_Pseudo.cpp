@@ -84,7 +84,7 @@ void AState_Pseudo::Excute()
 		
 	}
 
-	sendMessage();
+	
 }
 
 void AState_Pseudo::BeingCaputred()
@@ -96,16 +96,6 @@ void AState_Pseudo::BeingCaputred()
 	//tempOwner->
 }
 
-void AState_Pseudo::sendMessage()
-{
-	auto tempOwner = GetOwner();
-
-	auto diaComp = tempOwner->GetCompnent(EComponentType::DialogueComponent);
-	if (diaComp != nullptr)
-	{
-		cout << "dia comp is exist" << endl;
-	}
-}
 
 APseudo * AState_Pseudo::GetOwner()
 {

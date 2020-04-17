@@ -34,14 +34,11 @@ void AState_Person::ExposedToPseudo()
 
 }
 
-void AState_Person::sendMessage()
-{
-}
 
 void AState_Person::excute()
 {
 	string name = GetOwner()->GetName();
-	int talkNum = rand() % 4;
+	
 	if(ActionTimer>=1.0f)
 	switch (state)
 	{
@@ -57,25 +54,8 @@ void AState_Person::excute()
 	case EState::Person_Runaway:
 
 		
-		switch (talkNum)
-		{
-		case 0:
-			cout << name << "이 재수 없다고 자리를 피합니다" << endl;
-			break;
-		case 1:
-
-			cout << name << "이 화를 냅니다" << endl;
-			break;
-		case 2:
-			cout << name << "이 침을 뱉습니다" << endl;
-			break;
-		case 3:
-			cout << name << "이 반야심경을 외웁니다" << endl;
-			break;
-		}
-
-		
-
+		//사이비에게 대응합니다
+		GetOwner()->ReactToPseudo();
 
 		state = EState::Person_Idle;
 		

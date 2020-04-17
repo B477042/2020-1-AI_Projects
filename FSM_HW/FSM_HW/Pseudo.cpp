@@ -1,7 +1,6 @@
 #include "Pseudo.h"
 #include"State_Pseudo.h"
-#include"DialogueComponent.h"
-#include"EventManager.h"
+#include"GameSpector.h"
 #include"Person.h"
 
 int APseudo::CreatedNum = 0;
@@ -75,12 +74,13 @@ void APseudo::SayHello()
 		break;
 	case 2:
 		cout << name << " \" 집에 복이 많으시네요 ^^\"" << endl;
+		break;
 	case 3:
 		cout << name << " \" 설문조사 좀 해주세요 ^^ \"" << endl;
 		break;
 	}
 
-	auto temp = (APerson*)FEventManager::GetGame()->FindActor(EActorType::Person);
+	auto temp = (APerson*)FGameSpector::GetInstance()->FindActor(EActorType::Person);
 	if(temp!=nullptr)
 	temp->ExposedToPseudo();
 

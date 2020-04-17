@@ -38,8 +38,7 @@ public:
 	virtual void EndPlay()override;
 	EState GetState() { return state; }
 protected:
-	//Dialogue Component에 정보를 보내준다
-	virtual void sendMessage();
+
 
 
 protected:

@@ -5,15 +5,7 @@
 #include <conio.h>
 
 
-FGameSpector::FGameSpector()
-{
-	bPower = true;
-}
-
-
-FGameSpector::~FGameSpector()
-{
-}
+FGameSpector*FGameSpector::instance = nullptr;
 
 void FGameSpector::BeginPlay()
 {
@@ -54,6 +46,8 @@ void FGameSpector::EndPlay()
 		delete *it;
 	}
 	Actors.clear();
+
+	
 }
 
 AActor * FGameSpector::FindActor(EActorType Target)

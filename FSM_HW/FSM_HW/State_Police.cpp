@@ -1,5 +1,5 @@
 #include "State_Police.h"
-#include"EventManager.h"
+#include"GameSpector.h"
 #include"Pseudo.h"
 
 
@@ -102,7 +102,7 @@ void AState_Police::Excute()
 		{
 			cout << tempOwner->GetName() << "\" 엣햄 엣햄\"" << endl;
 
-			APseudo* target =(APseudo*) FEventManager::GetGame()->FindActor(EActorType::Pseudo);
+			APseudo* target =(APseudo*)FGameSpector::GetInstance()->FindActor(EActorType::Pseudo);
 			if (target == nullptr)cout << tempOwner->GetName() << " \"사이비가 없네\"" << endl;
 
 			auto targetComp=(AStateComponent*)(target->GetCompnent(EComponentType::StateComponent));
@@ -132,7 +132,7 @@ void AState_Police::Excute()
 		//체포 생태에서 행동
 	case EState::Police_Capture:
 		//잡아야될 사이비를 조사합니다
-		APseudo* target = (APseudo*)FEventManager::GetGame()->FindActor(EActorType::Pseudo);
+		APseudo* target = (APseudo*)FGameSpector::GetInstance()->FindActor(EActorType::Pseudo);
 		//사이비가 없다면  밥 먹으러 갑니다
 		if (target == nullptr)
 		{
@@ -193,6 +193,3 @@ APolice * AState_Police::GetOwner()
 	return tempOwner;
 }
 
-void AState_Police::sendMessage()
-{
-}

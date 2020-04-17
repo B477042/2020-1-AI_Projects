@@ -120,9 +120,7 @@
   <ItemGroup>
     <ClCompile Include="AActor.cpp" />
     <ClCompile Include="Component.cpp" />
-    <ClCompile Include="DialogueComponent.cpp" />
     <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="GameSpector.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
@@ -138,7 +136,6 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="DialogueComponent.h" />
     <ClInclude Include="Entity.h" />
-    <ClInclude Include="EventManager.h" />
     <ClInclude Include="GameSpector.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Police.h" />
@@ -147,7 +144,6 @@
     <ClInclude Include="State_Person.h" />
     <ClInclude Include="State_Police.h" />
     <ClInclude Include="State_Pseudo.h" />
-    <ClInclude Include="vectorTest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

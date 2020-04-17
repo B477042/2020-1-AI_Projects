@@ -1,6 +1,6 @@
 #include "Person.h"
 #include "State_Person.h"
-#include "EventManager.h"
+#include"GameSpector.h"
 #include "Police.h"
 
 
@@ -38,7 +38,7 @@ void APerson::EndPlay()
 
 void APerson::SendReport()
 {
-	auto police=(APolice*)FEventManager::GetGame()->FindActor(EActorType::Police);
+	auto police=(APolice*)FGameSpector::GetInstance()->FindActor(EActorType::Police);
 	
 	cout << "도와주세요@@" << endl;
 	police->GetReoprt();
@@ -48,5 +48,31 @@ void APerson::ExposedToPseudo()
 {
 	auto tempComp =(AState_Person*) GetCompnent(EComponentType::StateComponent);
 	tempComp->ExposedToPseudo();
+
+}
+
+void APerson::ReactToPseudo()
+{
+
+	int talkNum = rand() % 5;
+	switch (talkNum)
+	{
+	case 0:
+		cout << name << "이 재수 없다고 자리를 피합니다" << endl;
+		break;
+	case 1:
+
+		cout << name << "이 화를 냅니다" << endl;
+		break;
+	case 2:
+		cout << name << "이 침을 뱉습니다" << endl;
+		break;
+	case 3:
+		cout << name << "이 반야심경을 외웁니다" << endl;
+		break;
+	case 4:
+		cout << name << "이 발로 찰려고 합니다" << endl;
+		break;
+	}
 
 }

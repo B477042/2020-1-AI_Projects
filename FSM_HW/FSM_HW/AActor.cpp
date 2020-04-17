@@ -1,5 +1,5 @@
 #include "AActor.h"
-#include"EventManager.h"
+#include"GameSpector.h"
 
 
 AActor::AActor()
@@ -23,7 +23,7 @@ void AActor::Update(float DeltaTime)
 {
 	//cout << Name << endl;
 	
-	if (!FEventManager::GetGame()->bIsPowerOn())return;
+	if (!FGameSpector::GetInstance()->bIsPowerOn())return;
 	UpdateComponents(DeltaTime);
 }
 

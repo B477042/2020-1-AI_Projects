@@ -20,7 +20,7 @@ public:
 	void ExposedToPseudo();
 protected:
 
-	virtual void sendMessage();
+
 	void excute();
 	APerson*GetOwner();
 private:

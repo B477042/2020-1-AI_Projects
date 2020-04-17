@@ -33,6 +33,9 @@ public:
 	//사이비가 말을 걸어옵니다
 	void ExposedToPseudo();
 
+	//사이비에게 대응합니다.
+	void ReactToPseudo();
+
 };
 
 

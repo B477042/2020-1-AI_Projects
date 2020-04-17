@@ -27,8 +27,7 @@ public:
 protected:
 	//State기반의 행동을 합니다
 	void Excute();
-	//Dialogue Component에 정보를 보내준다
-	virtual void sendMessage();
+
 
 
 	//상태를 지연 시키는 카운터들

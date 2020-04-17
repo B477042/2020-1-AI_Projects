@@ -2,7 +2,7 @@
 #include<Windows.h>
 #include<time.h>
 #include"GameSpector.h"
-#include"EventManager.h"
+//#include"EventManager.h"
 using namespace std;
 
 int main()
@@ -11,11 +11,11 @@ int main()
 	float TickTime = 0;
 	//srand(static_cast<unsigned int>(time(0)));
 	
-	FEventManager::GetInstance();
-	FEventManager::GetGame();
-	FEventManager::GetGame()->BeginPlay();
+	FGameSpector::GetInstance();
 
-	while (FEventManager::GetGame()->bIsPowerOn())
+	FGameSpector::GetInstance()->BeginPlay();
+
+	while (FGameSpector::GetInstance()->bIsPowerOn())
 	{
 		/*currentTime = GetCurrentTime()-prevTime;
 		prevTime = GetCurrentTime();
@@ -23,14 +23,17 @@ int main()
 		TickTime += 66;
 
 
-		FEventManager::GetGame()->Update(TickTime/1000);
+		FGameSpector::GetInstance()->Update(TickTime/1000);
 
 		Sleep(66);
 		if (TickTime >= 1000)TickTime = 0.0f;
 	}
 	
-	FEventManager::EndPlay();
-	
+	FGameSpector::GetInstance()->EndPlay();
+	FGameSpector::EndGame();
 
+	char c;
+	cout << "Plz any key to exit" << endl;
+	cin >> c;
 	return 0;
 }
