@@ -5,7 +5,7 @@
 AActor::AActor()
 {
 	
-	name = "Actor";
+	//name = "Actor";
 	
 }
 

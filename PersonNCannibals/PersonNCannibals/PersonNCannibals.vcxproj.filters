@@ -27,6 +27,12 @@
     <ClCompile Include="GameSpector.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="StateNode.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchGraph.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AActor.h">
@@ -36,6 +42,12 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="GameSpector.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="StateNode.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchGraph.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

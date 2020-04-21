@@ -4,7 +4,10 @@
 #include"AActor.h"
 #include<conio.h>
 
+/*
+	이번엔 게임을 관찰하는 역할이 아닌 그래프를 관리하는 역할을 합니다
 
+*/
 
 
 class FGameSpector
