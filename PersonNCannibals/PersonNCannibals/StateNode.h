@@ -55,7 +55,9 @@ class AStateNode :
 		bIsAnyoneDead = false;
 		JudgeResult();
 	}
-	
+
+	//nextNodes가 비어있다면 leaf node가 된다.
+	bool IsLeafNode() { if (nextNodes.empty())return true; return false; }
 	bool IsNodeDead() { return bIsAnyoneDead; }
 	virtual void BeginPlay()override;
 	virtual void  EndPlay()override;
@@ -68,6 +70,8 @@ class AStateNode :
 	int GetDistance();
 	//현재 상황에 대해 출력합니다.
 	void PrintSituation();
+
+
 
 	const AStateNode* GetPrevNode() { return prevNode; }
 	const list<AStateNode*> GetNextNodes() { return nextNodes; }
