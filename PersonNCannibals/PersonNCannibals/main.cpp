@@ -1,17 +1,29 @@
-#include"GameSpector.h"
-#
+#include"SearchGraph.h"
+
 using namespace std;
 
 
 int main()
 {
 	
-	float TickTime = 0;
-	FGameSpector::GetInstance();
-	FGameSpector::GetInstance()->BeginPlay();
+	SearchTree::Instance()->CreateTree();
+	SearchTree::Instance()->RunBFS();
+	SearchTree::Instance()->RunDFS();
 	
 
-	FGameSpector::GetInstance()->EndPlay();
+	SearchTree::Instance()->EndPlay();
+
+
+	char a;
+	cin >> a;
+	
+	//list<int>alist;
+	/*if (alist.empty())
+		cout << "view";
+
+	char i;
+	cin >> i;*/
+
 
 	return 0;
 }

@@ -3,59 +3,68 @@
 #include <queue>
 #include <stack>
 /*
-	어떻게 문제를 풀 것인지 BFS Search를 이용하여 찾아갑니다.
-	StateNode를 엮어서 만든 트리에서 해답으로 찾아갑니다.
+	
+	StateNode를 엮어서 만든 트리를 이용합니다.
 
 
+	DFS와 BFS를 사용하였습니다
 */
 
-class SearchGraph
+class SearchTree
 {
 private:
-	SearchGraph(){}
-	~SearchGraph(){}
-	static SearchGraph* instance;
+	SearchTree(){}
+	~SearchTree(){}
+	static SearchTree* instance;
 public:
-	static SearchGraph*Instance()
+	static SearchTree*Instance()
 	{
 		if (instance == nullptr)
 		{
-			instance = new SearchGraph();
+			instance = new SearchTree();
 			return instance;
 		}
 		else
 			return instance;
 	}
 
-	//그래프에 노드를 붙인다
-	void BeginPlay();
-	//탐색을 시작한다
-	void Run();
-	//탐색이 끝나고 경로를 찾았다면 결과를 출력합니다
-	void ShowResult();
+	//트리를 만든다
+	void CreateTree();
+	//BFS Search
+	void RunBFS();
+	
+	//DFS Search
+	void RunDFS();
+	
 	//프로그렘 종료 절차에 들어갑니다. 메모리 해제에 들어갑니다
 	void EndPlay();
 
+	//G값을 계산합니다
+	int CalcGCount(AStateNode* Target);
+
 private:
+	//다음 탐색을 위해 트리를 처음 생성했을 상태로 바꿉니다
+	void resetProgress();
+	//탐색이 끝나고 경로를 찾았다면 결과를 출력합니다
+	void showResultBFS();
+	void showResultDFS();
+	void startDFS(AStateNode*Start);
 	/*
 	모든 노드들이 들어있는 벡터.
 	벡터를 사용한 이유는 메모리 해제할 때 이게 더 편할거 같아서 사용했습니다
 	*/
-	vector<AStateNode>A_Nodes;
-	//탐색할 때 사용할 노드 포인터
-	AStateNode* CurrentIndexNode;
+	vector<AStateNode*>A_Nodes;
+	
 	//최단거리에 위치한 노드
 	AStateNode* ShortestNode;
-	//첫 시작 노드
-	AStateNode* StartPointNode;
+	//트리의 첫 시작 노드
+	AStateNode* RootNode;
 	//방문해야될 노드를 담은 queue
-	queue<AStateNode*>ToVisitQue;
-
-	/*
-	최단거리 노드를 찾았다면 그 노드부터 부모로 올라가면서 경로가 되는 노드들을 저장합니다. 
-	다 담았다면 시작노드가 제일 위로 올라가게 되고 그것부터 꺼내면서 결과를 출력합니다
-	*/
-	stack<AStateNode*>ResultStack;
+	queue<AStateNode*>BFS_ToVisitQue;
+	//빅오
+	int bigO;
+	//DFS 탐색에서의 경로
+	queue<AStateNode*>DFS_Paths;
 
 };
 
