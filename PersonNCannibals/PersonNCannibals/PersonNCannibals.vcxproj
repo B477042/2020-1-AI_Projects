@@ -124,11 +124,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SearchGraph.cpp" />
+    <ClCompile Include="SearchTree.cpp" />
     <ClCompile Include="StateNode.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SearchGraph.h" />
+    <ClInclude Include="SearchTree.h" />
     <ClInclude Include="StateNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,7 +1,7 @@
 #include "StateNode.h"
 
 
-
+//종료절차
 void AStateNode::EndPlay()
 {
 	

@@ -1,4 +1,4 @@
-#include"SearchGraph.h"
+#include"SearchTree.h"
 
 using namespace std;
 
@@ -17,12 +17,7 @@ int main()
 	char a;
 	cin >> a;
 	
-	//list<int>alist;
-	/*if (alist.empty())
-		cout << "view";
-
-	char i;
-	cin >> i;*/
+	
 
 
 	return 0;

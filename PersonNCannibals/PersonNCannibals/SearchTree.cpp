@@ -1,4 +1,4 @@
-#include "SearchGraph.h"
+#include "SearchTree.h"
 SearchTree* SearchTree::instance = nullptr;
 
 void SearchTree::CreateTree()
@@ -220,6 +220,7 @@ void SearchTree::RunDFS()
 
 void SearchTree::startDFS(AStateNode*Start)
 {
+	//방문한 적이 있다면 return
 	if (Start->IsVisted())return;
 
 	bigO++;
@@ -281,7 +282,7 @@ void SearchTree::showResultBFS()
 
 	resetProgress();
 }
-
+//종료절차
 void SearchTree::EndPlay()
 {
 	for (auto it : A_Nodes)
