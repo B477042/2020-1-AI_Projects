@@ -64,7 +64,7 @@
     (idkCure ?x)(idkCure ?y)
     (idkRabbit ?x)(idkRabbit ?y)
     (isSick ?x)
-
+    
     )
     :effect (and 
     (not(idkCure ?x))(not (idkCure ?y))
@@ -130,6 +130,8 @@
     )
     :effect (and 
     (not(idkRabbit ?y))
+    (not(atSea ?y))
+    (atLand ?y)
     )
 )
 
@@ -158,8 +160,8 @@
 
     (idkKing ?y)
     (idkPlan ?y)
-    (not(isRunaway ?y))
-    (not(giveCure ?y))
+    ;(not(isRunaway ?y))
+    ;(not(giveCure ?y))
 
     )
     :effect (and 
@@ -186,15 +188,15 @@
     :precondition (and
     (zara ?x)(rabbit ?y)
     (atSea ?x)(atSea ?y)
-    (not(atland ?x))(not (atLand ?y))
+    (not(atLand ?x))(not (atLand ?y))
 
     (not(idkRabbit ?x))
     (not(idkCure ?x))
 
     (idkKing ?y)
     (idkPlan ?y)
-    (not(isRunaway ?y))
-    (not(giveCure ?y))
+    ;(not(isRunaway ?y))
+    ;(not(giveCure ?y))
 
 
      )
@@ -215,21 +217,21 @@
 ;     8) 왕과 자라는 치료법을 알고있습니다
       ;9) 왕은 아픕니다
 ; 결과
-;     1) 토끼는 왕의 계획을 알게 됩니다
-;     2) 왕은 토끼를 알게 됩니다
+;     
+;     1) 왕은 토끼를 알게 됩니다
 (:action King_trying_to_take_liver_of_rabbit
     :parameters (?obj ?x ?y ?z)
     :precondition (and
     (zara ?x)(rabbit ?y)(king ?z)
     (atSea ?x)(atSea ?y)(atSea ?z)
-    (not(atland ?x))(not (atLand ?y))(not(atSea ?z))
+    (not(atLand ?x))(not (atLand ?y))(not(atLand ?z))
 
    
 
     (not(idkKing ?y))
     (idkPlan ?y)
-    (not(isRunaway ?y))
-    (not(giveCure ?y))
+    ;(not(isRunaway ?y))
+    ;(not(giveCure ?y))
 
     (idkRabbit ?z)
     
@@ -239,7 +241,7 @@
      )
     :effect (and 
     (not(idkRabbit ?z))
-    (not(idkPlan ?y))
+    
     )
 )
 
@@ -247,7 +249,7 @@
 ; 조건
 ;     1) 셋 다 바다에 있습니다
 ;     2) 토끼는 왕을 알고 있습니다
-;     3) 토끼는 왕의 계획을 알고 있습니다
+;     3) 토끼는 왕의 계획을 모릅니다
 ;     4) 토끼는 도망가지 않았습니다
 ;     5) 토끼는 약을 주지 않았습니다
 ;     6) 자라와 왕은 토끼를 알고 있습니다
@@ -255,17 +257,18 @@
 ;     8) 왕은 아픕니다
 ; 결과
 ;     1) 자라와 토끼는 육지로 갑니다
+;       2)토끼는 계획을 알게 됩니다
 (:action Rabbit_tell_a_lie_to_king
   :parameters (?obj ?x ?y ?z)
     :precondition (and
     (zara ?x)(rabbit ?y)(king ?z)
     (atSea ?x)(atSea ?y)(atSea ?z)
-    (not(atland ?x))(not (atLand ?y))(not(atSea ?z))
+    (not(atland ?x))(not (atLand ?y))(not(atLand ?z))
 
     
 
     (not(idkKing ?y))
-    (not(idkPlan ?y))
+    (idkPlan ?y)
     (not(isRunaway ?y))
     (not(giveCure ?y))
 
@@ -274,6 +277,7 @@
     (isSick ?z)
      )
     :effect (and
+    (not(idkPlan ?y))
     (atLand ?x)(atLand ?y)
     (not(atSea ?x))(not(atSea ?y))
      )
@@ -299,7 +303,7 @@
 
     (not(idkRabbit ?x))
     (not(idkCure ?x))
-
+    
   
     (not(idkKing ?y))
     (not(idkPlan ?y))
@@ -356,7 +360,7 @@
     
     (zara ?x)(rabbit ?y)(king ?z)
     (atSea ?x)(atLand ?y)(atSea ?z)
-    (not(atland ?x))(not(atSea ?y))(not(atSea ?z))
+    (not(atLand ?x))(not(atSea ?y))(not(atLand ?z))
 
     (not(idkRabbit ?x))(not(idkRabbit ?z))
     (not(idkCure ?x))(not(idkCure ?z))
