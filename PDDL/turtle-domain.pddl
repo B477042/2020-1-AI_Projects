@@ -39,7 +39,7 @@
 ;       1)둘 다 바다에 있어야 된다.
 ;       2)토끼를 만난적이 없어야 된다
 ; 결과 : 별주부는 육지로 간다
-(:action order_find
+(:action zara_receive_order_to_find_rabbit
     :parameters (?x ?y)
     :precondition (and 
     (king ?x)(turtle ?y)

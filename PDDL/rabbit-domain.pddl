@@ -43,7 +43,7 @@
 ; 결과
 ; 1) 둘 다 바다로 간다
 ; 2) 거북이는 토끼를 알게 된다
-(:action see_Turtle
+(:action see_Turtle_at_beach
     :parameters (?obj ?x ?y)
     :precondition (and
     (rabbit ?x)(turtle ?y)
