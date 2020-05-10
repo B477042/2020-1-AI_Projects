@@ -52,10 +52,15 @@
     (idkRabbit ?y)
     (idkKing ?x)
     (idkPlan ?x)
+
+  (not(runaway ?x))
+    (not(giveCure ?x))
+
      )
     :effect (and
     (atSea ?x)(atSea ?y)
     (not (atLand ?x))(not (atLand ?y))
+
     (not(idkRabbit ?y))
 
      )
@@ -73,15 +78,19 @@
 ;     2)토끼는 계획을 알게 된다
 ;     3)용왕은 토끼를 알게 된다
 
-(:action followTurtleAndSeeKing
-    :parameters (?obj ?x?y?z)
+(:action follow_turtle_And_Meet_the_king
+    :parameters (?obj ?x ?y ?z)
     :precondition (and 
     (rabbit ?x)(turtle ?y)(king ?z)
     (atSea ?x)(atSea ?y)(atSea ?z)
     (not(atLand ?x))(not(atLand ?y))(not(atLand ?Z))
     (idkKing ?x)
+    (idkPlan ?x)
     (idkRabbit ?z)
     (not(idkRabbit ?y))
+
+  (not(runaway ?x))
+    (not(giveCure ?x))
 
     )
     :effect (and 
@@ -93,13 +102,82 @@
     )
 )
 
+; 토끼가 용왕의 계획을 알게 되고 살려고 거짓말을 한다
+;   x 토끼 y 거북이 z 용왕
+; 조건
+;     1) 셋다 바다에 있다
+;     2) 토끼는 용왕을 알고 있다
+;     3) 토끼는 용왕의 계획을 알고 있다
+;     4) 용왕과 거북이는 토끼를 알고 있다
+; 결과
+;     1)거북이와 토끼는 다시 육지로 간다
+(:action Tell_a_lie_to_king
+    :parameters (?obj ?x ?y ?z)
+    :precondition (and 
+    (rabbit ?x)(turtle ?y)(king ?z)
+    (atSea ?x)(atSea ?y)(atSea ?z)
+    (not(atLand ?x))(not(atLand ?y))(not(atLand ?Z))
+    (not(idkKing ?x))(not(idkPlan ?x))
+    (not(idkRabbit ?z))(not(idkRabbit ?y))
 
-(:action Tell_a_line_
-    :parameters ()
-    :precondition (and )
-    :effect (and )
+      (not(runaway ?x))
+    (not(giveCure ?x))
+    )
+    :effect (and 
+    (atLand ?x) (atLand ?y)
+    (not(atSea ?x))(not (atSea ?y))
+    )
 )
 
+; 육지로 올라온 토끼가 도망간다
+; 조건
+;     1) 둘 다 육지에 있다
+;     2) 토끼는 용왕을 알고 계획을 알고 있다
+;     3) 거북이는 토끼를 알고 있다
+; 결과
+;     1) 토끼가 도망간다
+(:action Runaway_from_turtle
+    :parameters (?obj ?x ?y) 
+    :precondition (and
+    (rabbit ?x)(turtle ?y)
+    (atLand ?x)(atLand ?y)
+    (not(atSea ?x))(not(atSea ?y))
+    (not(idkRabbit?y))
+    (not(idkKing ?x))
+    (not(idkPlan ?x))
+    (not(runaway ?x))
+    (not(giveCure ?x))
+     )
+    :effect (and
+    (runaway ?x)
+     )
+)
+
+; 토끼가 불쌍해서 약을 준다
+; 조건
+;     1) 둘 다 육지에 있다
+;     2) 토끼는 도망갔다
+;     3) 토끼는 용왕과 계획을 알고 있다
+;     4) 거북이는 토끼를 알고 있다
+; 결과
+;     1) 토끼가 약을 준다
+
+(:action give_cure_to_turtle
+    :parameters (?obj ?x ?y) 
+    :precondition (and
+    (rabbit ?x)(turtle ?y)
+    (atLand ?x)(atLand ?y)
+    (not(atSea ?x))(not(atSea ?y))
+    (not(idkRabbit?y))
+    (not(idkKing ?x))
+    (not(idkPlan ?x))
+    (runaway ?x)
+    (not(giveCure ?x))
+     )
+    :effect (and 
+    (giveCure ?x)
+    )
+)
 
 
 )
