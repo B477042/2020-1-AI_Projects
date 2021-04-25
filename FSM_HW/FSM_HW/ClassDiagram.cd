@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UGameSpector">
+    <Position X="3.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQABAAAEAAAgAAAAAAAAAEABABAgAAAAAAAAAE4AGA=</HashCode>
+      <FileName>GameSpector.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AActor" Collapsed="true">
+    <Position X="2.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAEAAAAIEBAEQABEAAAAIEAAEAQQAAAAAgBIE=</HashCode>
+      <FileName>AActor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AComponent" Collapsed="true">
+    <Position X="8.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAEIAQAAAAAAQACAABAAAAAAAAQFAAAAAgAAE=</HashCode>
+      <FileName>Component.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AEntity" Collapsed="true">
+    <Position X="6" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APerson" Collapsed="true">
+    <Position X="2.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAEAAAAAAAAABAAAAAAAIAAAAAAAACBAAgAIA=</HashCode>
+      <FileName>Person.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APolice" Collapsed="true">
+    <Position X="5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIAAEAAAIQAAAAAAAAAAAAAAAAAAAAAAAAAgAJA=</HashCode>
+      <FileName>Police.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APseudo" Collapsed="true">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEUAAAAAEAAAgAIAAAAAAAAAAAAAQAAIAAAAAAAgAIA=</HashCode>
+      <FileName>Pseudo.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AState_Person">
+    <Position X="7.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAAEIAAAAAABAAAAAAAAAAAAABAAAACAgAgAAA=</HashCode>
+      <FileName>State_Person.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AState_Police">
+    <Position X="10" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQAAABAEIIAAAIAAAAABAAAAAAAAAAIAAAAQAAgAAA=</HashCode>
+      <FileName>State_Police.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AState_Pseudo">
+    <Position X="12.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQAAAAAEIAAACIAAAAIAAAAAADAAAAAAAAAQAAgAAA=</HashCode>
+      <FileName>State_Pseudo.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AStateComponent" Collapsed="true">
+    <Position X="8.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAEAAAAAAAAIAAAAAAABAAAAAEAAAAAAAgAAA=</HashCode>
+      <FileName>StateComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="EActorType">
+    <Position X="9" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAgAAEAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AActor.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EComponentType">
+    <Position X="10.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
+      <FileName>Component.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EState">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EBEAIAAAAAAAAAAAAACAAACAAAAAAICAAAAAAAECAIA=</HashCode>
+      <FileName>StateComponent.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

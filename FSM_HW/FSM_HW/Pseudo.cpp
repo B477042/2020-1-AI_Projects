@@ -80,7 +80,7 @@ void APseudo::SayHello()
 		break;
 	}
 
-	auto temp = (APerson*)FGameSpector::GetInstance()->FindActor(EActorType::Person);
+	auto temp = (APerson*)UGameSpector::GetInstance()->FindActor(EActorType::Person);
 	if(temp!=nullptr)
 	temp->ExposedToPseudo();
 

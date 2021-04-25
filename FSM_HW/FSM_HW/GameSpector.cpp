@@ -5,9 +5,9 @@
 #include <conio.h>
 
 
-FGameSpector*FGameSpector::instance = nullptr;
+UGameSpector*UGameSpector::instance = nullptr;
 
-void FGameSpector::BeginPlay()
+void UGameSpector::BeginPlay()
 {
 	
 	Actors.push_back(new APseudo());
@@ -21,7 +21,7 @@ void FGameSpector::BeginPlay()
 	}
 }
 
-void FGameSpector::Update(float DeltaTime)
+void UGameSpector::Update(float DeltaTime)
 {
 	for (auto it = Actors.begin(); it != Actors.end(); it++)
 	{
@@ -37,7 +37,7 @@ void FGameSpector::Update(float DeltaTime)
 //	CheckAllPseudo();
 }
 
-void FGameSpector::EndPlay()
+void UGameSpector::EndPlay()
 {
 	for (auto it = Actors.begin(); it != Actors.end(); it++)
 	{
@@ -50,7 +50,7 @@ void FGameSpector::EndPlay()
 	
 }
 
-AActor * FGameSpector::FindActor(EActorType Target)
+AActor * UGameSpector::FindActor(EActorType Target)
 {
 	for (auto it : Actors)
 	{
@@ -64,7 +64,7 @@ AActor * FGameSpector::FindActor(EActorType Target)
 
 
 //모든 사이비 신도의 상태를 체크합니다. 만약 모든 사이비가 체포됐다면 파워를 꺼줍니다. 아니라면 파워를 켜둡니다.
-void FGameSpector::CheckAllPseudo()
+void UGameSpector::CheckAllPseudo()
 {
 	for (auto it : Actors)
 	{
@@ -91,7 +91,7 @@ void FGameSpector::CheckAllPseudo()
 }
 
 //사용자의 입력을 받습니다.esc를 누르면 강제종료 됩니다.
-void FGameSpector::getUserInput()
+void UGameSpector::getUserInput()
 {
 	if (_kbhit())
 	{

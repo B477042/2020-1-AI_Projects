@@ -87,7 +87,7 @@ void AState_Police::Excute()
 			//30%확률로 일을 합니다
 			else
 			{
-				cout << tempOwner->GetName() << "가 드디어 일읗 합니다" << endl;
+				cout << tempOwner->GetName() << "가 드디어 일을 합니다" << endl;
 				state = EState::Police_OnPatrol;
 				n_Sleep = 0;
 			}
@@ -100,16 +100,16 @@ void AState_Police::Excute()
 		//일을 시작하면 사이비를 찾아 스캔합니다
 		if (n_OnWalk == 0)
 		{
-			cout << tempOwner->GetName() << "\" 엣햄 엣햄\"" << endl;
+			cout << tempOwner->GetName() << "\" 엣햄 \"" << endl;
 
-			APseudo* target =(APseudo*)FGameSpector::GetInstance()->FindActor(EActorType::Pseudo);
+			APseudo* target =(APseudo*)UGameSpector::GetInstance()->FindActor(EActorType::Pseudo);
 			if (target == nullptr)cout << tempOwner->GetName() << " \"사이비가 없네\"" << endl;
 
 			auto targetComp=(AStateComponent*)(target->GetCompnent(EComponentType::StateComponent));
 			switch (targetComp->GetState())
 			{
 				case EState::Pseudo_Preach:
-					cout << "\"잡았다 요놈!\"" << endl;
+					cout << "\"잡았다!\"" << endl;
 					target->BeingCaputred();
 
 			default:
@@ -131,9 +131,9 @@ void AState_Police::Excute()
 
 		//체포 생태에서 행동
 	case EState::Police_Capture:
-		cout << "=====현장 도착====" << endl;
+		cout << "===현장 도착===" << endl;
 		//잡아야될 사이비를 조사합니다
-		APseudo* target = (APseudo*)FGameSpector::GetInstance()->FindActor(EActorType::Pseudo);
+		APseudo* target = (APseudo*)UGameSpector::GetInstance()->FindActor(EActorType::Pseudo);
 		//사이비가 없다면  밥 먹으러 갑니다
 		if (target == nullptr)
 		{
@@ -150,7 +150,7 @@ void AState_Police::Excute()
 		{
 			//사이비가 포교 중이라면 잡습니다
 		case EState::Pseudo_Preach:
-			cout << "\"잡았다 요놈!\"" << endl;
+			cout << "\"잡았다!\"" << endl;
 			target->BeingCaputred();
 
 			break;
@@ -170,7 +170,7 @@ void AState_Police::Excute()
 //경찰이 신고를 받았을 때  상태에 따라 처리됩니다
 void AState_Police::GetReported()
 {
-	cout << "======경찰에 신고가 접수 됐습니다===" << endl;
+	cout << "===경찰에 신고가 접수 됐습니다===" << endl;
 	switch (state)
 	{
 	case EState::Police_Sleep:
@@ -190,7 +190,7 @@ void AState_Police::GetReported()
 APolice * AState_Police::GetOwner()
 {
 	auto tempOwner = (APolice*)(Owner);
-	if (tempOwner == nullptr) { cout << "SADFAFSDFASDFASDFASFD Police Casting Error" << endl; return nullptr; }
+	if (tempOwner == nullptr) { cout << "Police Casting Error" << endl; return nullptr; }
 	return tempOwner;
 }
 

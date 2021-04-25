@@ -23,7 +23,7 @@ void AActor::Update(float DeltaTime)
 {
 	//cout << Name << endl;
 	
-	if (!FGameSpector::GetInstance()->bIsPowerOn())return;
+	if (!UGameSpector::GetInstance()->bIsPowerOn())return;
 	UpdateComponents(DeltaTime);
 }
 

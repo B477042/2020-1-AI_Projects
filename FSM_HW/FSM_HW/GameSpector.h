@@ -7,27 +7,27 @@
 
 
 
-class FGameSpector
+class UGameSpector
 {
 private:
-	FGameSpector()
+	UGameSpector()
 	{
 		bPower = true;
 	}
-	//FGameSpector(const FGameSpector& other);
-	~FGameSpector()
+	//UGameSpector(const UGameSpector& other);
+	~UGameSpector()
 	{
 
 	}
-	static FGameSpector* instance;
+	static UGameSpector* instance;
 
 
 public:
-	static FGameSpector* GetInstance()
+	static UGameSpector* GetInstance()
 	{
 		if (instance == nullptr)
 		{
-			instance = new FGameSpector();
+			instance = new UGameSpector();
 			return instance;
 		}
 		return instance;

@@ -38,7 +38,7 @@ void APerson::EndPlay()
 
 void APerson::SendReport()
 {
-	auto police=(APolice*)FGameSpector::GetInstance()->FindActor(EActorType::Police);
+	auto police=(APolice*)UGameSpector::GetInstance()->FindActor(EActorType::Police);
 	
 	cout << "도와주세요@@" << endl;
 	police->GetReoprt();
